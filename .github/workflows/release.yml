@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release archive
+        run: |
+          mkdir -p release
+          cp -r src examples README.md library.properties keywords.txt LICENSE release/
+          cd release
+          zip -r ../UltrasonicSensorLibrary-${GITHUB_REF_NAME}.zip .
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: UltrasonicSensorLibrary-${{ github.ref_name }}.zip

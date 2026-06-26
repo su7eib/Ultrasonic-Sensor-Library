@@ -1,0 +1,8 @@
+UltrasonicSensorLibrary	KEYWORD1
+begin	KEYWORD2
+readCM	KEYWORD2
+readMM	KEYWORD2
+readInch	KEYWORD2
+setTimeout	KEYWORD2
+setInterval	KEYWORD2
+refresh	KEYWORD2
