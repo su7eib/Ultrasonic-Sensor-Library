@@ -1,3 +1,4 @@
+Ultrasonic	KEYWORD1
 UltrasonicSensorLibrary	KEYWORD1
 begin	KEYWORD2
 readCM	KEYWORD2

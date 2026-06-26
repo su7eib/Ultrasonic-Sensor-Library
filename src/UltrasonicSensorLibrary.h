@@ -3,11 +3,11 @@
 
 #include <Arduino.h>
 
-class UltrasonicSensorLibrary
+class Ultrasonic
 {
 public:
-    UltrasonicSensorLibrary(uint8_t trigPin, uint8_t echoPin);
-    UltrasonicSensorLibrary(uint8_t signalPin);
+    Ultrasonic(uint8_t trigPin, uint8_t echoPin);
+    Ultrasonic(uint8_t signalPin);
 
     void begin();
     float readCM();
@@ -29,5 +29,7 @@ private:
 
     void triggerPulse();
 };
+
+using UltrasonicSensorLibrary = Ultrasonic;
 
 #endif

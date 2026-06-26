@@ -6,7 +6,7 @@ namespace
     constexpr unsigned long kDefaultIntervalMs = 60;
 }
 
-UltrasonicSensorLibrary::UltrasonicSensorLibrary(uint8_t trigPin, uint8_t echoPin)
+Ultrasonic::Ultrasonic(uint8_t trigPin, uint8_t echoPin)
 {
     _trigPin = trigPin;
     _echoPin = echoPin;
@@ -18,7 +18,7 @@ UltrasonicSensorLibrary::UltrasonicSensorLibrary(uint8_t trigPin, uint8_t echoPi
     _hasValidMeasurement = false;
 }
 
-UltrasonicSensorLibrary::UltrasonicSensorLibrary(uint8_t signalPin)
+Ultrasonic::Ultrasonic(uint8_t signalPin)
 {
     _trigPin = signalPin;
     _echoPin = signalPin;
@@ -30,7 +30,7 @@ UltrasonicSensorLibrary::UltrasonicSensorLibrary(uint8_t signalPin)
     _hasValidMeasurement = false;
 }
 
-void UltrasonicSensorLibrary::begin()
+void Ultrasonic::begin()
 {
     pinMode(_trigPin, OUTPUT);
     digitalWrite(_trigPin, LOW);
@@ -45,17 +45,17 @@ void UltrasonicSensorLibrary::begin()
     _hasValidMeasurement = false;
 }
 
-void UltrasonicSensorLibrary::setTimeout(unsigned long timeoutMicroseconds)
+void Ultrasonic::setTimeout(unsigned long timeoutMicroseconds)
 {
     _timeout = timeoutMicroseconds;
 }
 
-void UltrasonicSensorLibrary::setInterval(unsigned long intervalMilliseconds)
+void Ultrasonic::setInterval(unsigned long intervalMilliseconds)
 {
     _interval = intervalMilliseconds;
 }
 
-void UltrasonicSensorLibrary::triggerPulse()
+void Ultrasonic::triggerPulse()
 {
     pinMode(_trigPin, OUTPUT);
     digitalWrite(_trigPin, LOW);
@@ -67,7 +67,7 @@ void UltrasonicSensorLibrary::triggerPulse()
     digitalWrite(_trigPin, LOW);
 }
 
-bool UltrasonicSensorLibrary::refresh()
+bool Ultrasonic::refresh()
 {
     if (_lastMeasurementTime != 0)
     {
@@ -105,7 +105,7 @@ bool UltrasonicSensorLibrary::refresh()
     return true;
 }
 
-float UltrasonicSensorLibrary::readCM()
+float Ultrasonic::readCM()
 {
     if (_hasValidMeasurement)
     {
@@ -121,12 +121,12 @@ float UltrasonicSensorLibrary::readCM()
     return _lastDistance;
 }
 
-float UltrasonicSensorLibrary::readMM()
+float Ultrasonic::readMM()
 {
     return readCM() * 10.0f;
 }
 
-float UltrasonicSensorLibrary::readInch()
+float Ultrasonic::readInch()
 {
     return readCM() / 2.54f;
 }

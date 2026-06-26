@@ -47,7 +47,7 @@ This release includes the core features needed for a practical Arduino library:
 ```cpp
 #include <UltrasonicSensorLibrary.h>
 
-UltrasonicSensorLibrary sensor(2, 3);
+Ultrasonic sensor(2, 3);
 
 void setup()
 {
@@ -67,7 +67,7 @@ void loop()
 ```cpp
 #include <UltrasonicSensorLibrary.h>
 
-UltrasonicSensorLibrary sensor(2);
+Ultrasonic sensor(2);
 
 void setup()
 {
