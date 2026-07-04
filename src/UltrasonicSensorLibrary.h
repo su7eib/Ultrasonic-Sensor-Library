@@ -15,6 +15,7 @@ public:
     float readInch();
     void setTimeout(unsigned long timeoutMicroseconds);
     void setInterval(unsigned long intervalMilliseconds);
+    void setDistanceFactor(float distanceFactor);
     bool refresh();
 
 private:
@@ -25,6 +26,7 @@ private:
     unsigned long _interval;
     unsigned long _lastMeasurementTime;
     float _lastDistance;
+    float _distanceFactor;
     bool _hasValidMeasurement;
 
     void triggerPulse();

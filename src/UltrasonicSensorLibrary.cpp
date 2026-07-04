@@ -4,6 +4,7 @@ namespace
 {
     constexpr unsigned long kDefaultTimeoutMicros = 30000;
     constexpr unsigned long kDefaultIntervalMs = 60;
+    constexpr float kDefaultDistanceFactor = 58.0f;
 }
 
 Ultrasonic::Ultrasonic(uint8_t trigPin, uint8_t echoPin)
@@ -13,6 +14,7 @@ Ultrasonic::Ultrasonic(uint8_t trigPin, uint8_t echoPin)
     _singlePin = false;
     _timeout = kDefaultTimeoutMicros;
     _interval = kDefaultIntervalMs;
+    _distanceFactor = kDefaultDistanceFactor;
     _lastMeasurementTime = 0;
     _lastDistance = NAN;
     _hasValidMeasurement = false;
@@ -25,6 +27,7 @@ Ultrasonic::Ultrasonic(uint8_t signalPin)
     _singlePin = true;
     _timeout = kDefaultTimeoutMicros;
     _interval = kDefaultIntervalMs;
+    _distanceFactor = kDefaultDistanceFactor;
     _lastMeasurementTime = 0;
     _lastDistance = NAN;
     _hasValidMeasurement = false;
@@ -53,6 +56,14 @@ void Ultrasonic::setTimeout(unsigned long timeoutMicroseconds)
 void Ultrasonic::setInterval(unsigned long intervalMilliseconds)
 {
     _interval = intervalMilliseconds;
+}
+
+void Ultrasonic::setDistanceFactor(float distanceFactor)
+{
+    if (distanceFactor > 0.0f)
+    {
+        _distanceFactor = distanceFactor;
+    }
 }
 
 void Ultrasonic::triggerPulse()
@@ -100,7 +111,7 @@ bool Ultrasonic::refresh()
         return false;
     }
 
-    _lastDistance = duration / 58.0f;
+    _lastDistance = duration / _distanceFactor;
     _hasValidMeasurement = true;
     return true;
 }
