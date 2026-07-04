@@ -155,7 +155,6 @@ Use this when a sensor produces a consistent offset or uses a variant timing for
 
 - Added ESP32 compatibility notes and examples
 - Added a single-pin ultrasonic example
-- Improved README structure and installation guidance
 - Updated package version to `1.1.0`
 
 ### v1.0.0
