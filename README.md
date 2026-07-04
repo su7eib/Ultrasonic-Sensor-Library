@@ -36,13 +36,6 @@ For maximum compatibility:
 - Keep the sensor and controller ground lines common.
 - Avoid pins reserved for internal ESP32 functions when using ESP32 boards.
 
-## Installation
-
-1. Download the repository as a ZIP file.
-2. Open the Arduino IDE.
-3. Go to Sketch > Include Library > Add .ZIP Library.
-4. Select the downloaded ZIP and restart the IDE if required.
-
 ## Wiring
 
 ### Trig + Echo modules
